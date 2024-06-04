@@ -354,7 +354,7 @@ int main() {
     cout << "###################### Testing Square.dat ######################\n";
     cout << "Test 16 a's should be on tape (Should pass)";
 
-    string t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaaa");
+    string t = automaton("square.dat","aaaa");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -365,7 +365,7 @@ int main() {
 
     cout << "Test 1 a should be on tape (Should pass)";
     
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a");
+    t = automaton("square.dat","a");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -376,7 +376,7 @@ int main() {
 
     cout << "Test 36 a's should be on tape (Should pass)";
     
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaaaaa");
+    t = automaton("square.dat","aaaaaa");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -387,7 +387,7 @@ int main() {
 
     cout << "Test string contains reject character (Reject)";
 
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaba");
+    t = automaton("square.dat","aaba");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -397,7 +397,7 @@ int main() {
 
     cout << "Test no input string (Reject)";
 
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","");
+    t = automaton("square.dat","");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -407,7 +407,7 @@ int main() {
 
     cout << "Test invalid input string (Reject)";
 
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a1q34251aba");
+    t = automaton("square.dat","a1q34251aba");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -419,7 +419,7 @@ int main() {
 
     cout << "Test read only b's, writes c on them, reject if any a is found (pass)";
 
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbbb");
+    t = automaton("test1.dat","bbbb");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -430,7 +430,7 @@ int main() {
 
     cout << "Test read only b's, writes c on them, reject if any a is found (Reject)";
 
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbabb");
+    t = automaton("test1.dat","bbabb");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
