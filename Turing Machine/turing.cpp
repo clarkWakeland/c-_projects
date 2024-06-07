@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <cmath>
+#include <unistd.h>
+#include <vector>
 
 using namespace std;
 
@@ -282,6 +284,9 @@ string automaton(string file, string input) {
         return "REJECT";
     }
 
+    std::vector<char> vec(2, ' ');
+    char arrow = '^';
+
     while (true){
         char sym = dfa.tape[dfa.tapeHeadIndex];
         int stateInd = findStateIndex(dfa, curState, stateSize);
@@ -296,13 +301,25 @@ string automaton(string file, string input) {
         string nextState = dfa.transititions[indOfInterest];
         string toWrite = dfa.writeStates[indOfInterest];
         string dir = dfa.moveStates[indOfInterest];
-        
+        if (dfa.tapeHeadIndex == vec.size()){
+            vec.push_back(' ');    
+        }
+
+        vec[dfa.tapeHeadIndex] = arrow;
         /*Debugging        
         cout << "\n" << curState << "\n";
         cout << "Head Index: " << dfa.tapeHeadIndex << "\n"; 
         cout << dfa.tape;
         */
+        cout << "\033[A\r" << dfa.tape << std::flush << '\n';
+        cout << '\r';
 
+        for (char c: vec){
+            cout << c << std::flush;
+        }
+        vec[dfa.tapeHeadIndex] = ' ';
+
+        usleep(100000);
         dfa.tape[dfa.tapeHeadIndex] = toWrite[0];
 
         if (dir == "R") {
@@ -351,10 +368,13 @@ string automaton(string file, string input) {
 
 int main() {
 
-    cout << "###################### Testing Square.dat ######################\n";
-    cout << "Test 16 a's should be on tape (Should pass)";
+    cout << "###################### Testing turing machine ######################\n";
+    const char * path = "square.dat";
+    const char * iTape = "aaa";
 
-    string t = automaton("square.dat","aaaa");
+    cout << "Input tape:" << iTape << "\n\n\n";
+
+    string t = automaton(path,iTape);
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -363,9 +383,9 @@ int main() {
         cout << "\npass\n";
     }
 
-    cout << "Test 1 a should be on tape (Should pass)";
+    /*cout << "Test 1 a should be on tape (Should pass)";
     
-    t = automaton("square.dat","a");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -376,7 +396,7 @@ int main() {
 
     cout << "Test 36 a's should be on tape (Should pass)";
     
-    t = automaton("square.dat","aaaaaa");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaaaaa");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -387,7 +407,7 @@ int main() {
 
     cout << "Test string contains reject character (Reject)";
 
-    t = automaton("square.dat","aaba");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaba");
     if ( t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -397,7 +417,7 @@ int main() {
 
     cout << "Test no input string (Reject)";
 
-    t = automaton("square.dat","");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -407,7 +427,7 @@ int main() {
 
     cout << "Test invalid input string (Reject)";
 
-    t = automaton("square.dat","a1q34251aba");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a1q34251aba");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -419,7 +439,7 @@ int main() {
 
     cout << "Test read only b's, writes c on them, reject if any a is found (pass)";
 
-    t = automaton("test1.dat","bbbb");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbbb");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -430,7 +450,7 @@ int main() {
 
     cout << "Test read only b's, writes c on them, reject if any a is found (Reject)";
 
-    t = automaton("test1.dat","bbabb");
+    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbabb");
     if (t == "REJECT") {
         cout << "REJECT\n";
         //return 1;
@@ -438,8 +458,8 @@ int main() {
         cout << "\n" << t;
         cout << "\npass\n";
     }
+*/
 
     return 0;
     
-
 }

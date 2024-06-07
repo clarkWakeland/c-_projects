@@ -1,9 +1,9 @@
 # Turing Machine
 
 A Turing machine as a deterministic finited automota (DFA) implementation in C++ (in case you though C++ wasn't turing complete). 
+![Example Image](./turingOpt.gif)
 
 # Use
-
 Modify a *.dat file to define the following fields: 
 
 ## Alphabet
