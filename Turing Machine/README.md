@@ -1,6 +1,6 @@
 # Turing Machine
 
-A Turing machine as a deterministic finited automota (DFA) implementation in C++ (in case you though C++ wasn't turing complete). 
+A Turing machine as a deterministic finited automota (DFA) implementation in C++ (in case you thought C++ wasn't turing complete). This particular DFA takes in `m` number of `a`'s and returns `m^2` number of `a` on the tape
 ![Example Image](./turingOpt.gif)
 
 # Use
@@ -10,22 +10,22 @@ Modify a *.dat file to define the following fields:
 Defines the input alphabet. If the input contains characters not in this alphabet, it is rejected.
 
 ## Tape Alphabet
-Defines the set of characters that can be written on the tape as the machine is running. Together with the input alphabet it makes all the symbols that can appear on the tape.
+Defines the set of characters that can be written on the tape as the machine is running. Together with the input alphabet it makes all the symbols that can appear on the tape. Tape always begins with `E`.
 
 ## States
 Defines the total states the machine has.
 
 ## Initial
-Initial state the machine starts in
+Initial state the machine starts in.
 
 ## Accept
-The state the machine will stop and accept the input
+The state the machine will stop and accept the input.
 
 ## Reject
-The state in which the machine will stop and reject the input
+The state in which the machine will stop and reject the input.
 
 ## Transitions
-The rules that the machine follows. Each rule is in the format `current state -- read symbol, write symbol, move direction --> next state`. Forms logic of machine
+The rules that the machine follows. Each rule is in the format `current state -- read symbol, write symbol, move direction --> next state`. Forms logic of machine and can be modeled as DFA.
 
 
 # Informal Description

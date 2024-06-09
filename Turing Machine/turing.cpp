@@ -369,8 +369,8 @@ string automaton(string file, string input) {
 int main() {
 
     cout << "###################### Testing turing machine ######################\n";
-    const char * path = "square.dat";
-    const char * iTape = "aaa";
+    string path = "square.dat";
+    string iTape = "aaaaaaa";
 
     cout << "Input tape:" << iTape << "\n\n\n";
 
@@ -382,83 +382,6 @@ int main() {
         cout << "\n" << t;
         cout << "\npass\n";
     }
-
-    /*cout << "Test 1 a should be on tape (Should pass)";
-    
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a");
-    if ( t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\n" << t;
-        cout << "\npass\n";
-    }
-
-    cout << "Test 36 a's should be on tape (Should pass)";
-    
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaaaaa");
-    if ( t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\n" << t;
-        cout << "\npass\n";
-    }
-
-    cout << "Test string contains reject character (Reject)";
-
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","aaba");
-    if ( t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\npass\n";
-    }
-
-    cout << "Test no input string (Reject)";
-
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","");
-    if (t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\npass\n";
-    }
-
-    cout << "Test invalid input string (Reject)";
-
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\square.dat","a1q34251aba");
-    if (t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\npass\n";
-    }
-
-    cout << "###################### Testing other turing machines ######################\n";
-
-    cout << "Test read only b's, writes c on them, reject if any a is found (pass)";
-
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbbb");
-    if (t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\n" << t;
-        cout << "\npass\n";
-    }
-
-    cout << "Test read only b's, writes c on them, reject if any a is found (Reject)";
-
-    t = automaton("C:\\Users\\clark\\Personal Repos\\aero552\\hw3\\test1.dat","bbabb");
-    if (t == "REJECT") {
-        cout << "REJECT\n";
-        //return 1;
-    } else{
-        cout << "\n" << t;
-        cout << "\npass\n";
-    }
-*/
 
     return 0;
     
